@@ -42,6 +42,12 @@ RUN curl -fsSLO "$SUPERCRONIC_URL" \
 ADD docker/supervisord.conf /etc/supervisord.conf
 ADD docker/start.sh /app/
 ADD . /app
+# required for assets precompilation
+ARG SECRET_KEY_BASE='dummy'
+ARG ENCRYPTION_PRIMARY_KEY='dummy'
+ARG ENCRYPTION_DETERMINISTIC_KEY='dummy'
+ARG ENCRYPTION_KEY_DERIVATION_SALT='dummy'
+RUN rails assets:precompile
 
 RUN useradd -m stringer
 RUN chown -R stringer:stringer /app
