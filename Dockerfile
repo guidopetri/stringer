@@ -25,7 +25,7 @@ RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales \
 
 ENV LC_ALL C.UTF-8
 
-ARG ARCH=amd64
+ARG ARCH=arm64
 ENV SUPERCRONIC_URL=https://github.com/aptible/supercronic/releases/download/v0.1.3/supercronic-linux-$ARCH \
     SUPERCRONIC=supercronic-linux-$ARCH \
     SUPERCRONIC_amd64_SHA1SUM=96960ba3207756bb01e6892c978264e5362e117e \
